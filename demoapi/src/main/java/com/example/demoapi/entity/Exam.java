@@ -1,4 +1,4 @@
-package com.example.demoapi;
+package com.example.demoapi.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
