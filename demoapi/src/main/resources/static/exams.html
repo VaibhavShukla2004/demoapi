@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Exams</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+<h2>Exam List</h2>
+<table id="examTable">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Type</th>
+        <th>Semester</th>
+        <th>Course Code</th>
+        <th>Date</th>
+        <th>Created By</th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script>
+    fetch("/exams")
+        .then(res => res.json())
+        .then(data => {
+            const tbody = document.querySelector("#examTable tbody");
+            data.forEach(exam => {
+                const row = `<tr>
+                    <td>${exam.examId}</td>
+                    <td>${exam.examType}</td>
+                    <td>${exam.semester}</td>
+                    <td>${exam.courseCode}</td>
+                    <td>${exam.dayOfExam}</td>
+                    <td>${exam.createdBy}</td>
+                </tr>`;
+                tbody.innerHTML += row;
+            });
+        });
+</script>
+</body>
+</html>
