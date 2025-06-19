@@ -26,18 +26,11 @@ public class ExamController {
         return examService.createExam(exam);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Exam> getExamById(@PathVariable int id) {
-        Optional<Exam> exam = examService.getExamById(id);
-        return exam.map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
-    }
-
     @PutMapping("/{id}")
     public ResponseEntity<Exam> updateExam(@PathVariable int id, @RequestBody Exam updatedExam) {
         return examService.getExamById(id)
                 .map(existingExam -> {
-                    updatedExam.setExamId(id);  // ensure correct ID
+                    updatedExam.setExamId(id);  // prevent ID change
                     Exam savedExam = examService.createExam(updatedExam);
                     return ResponseEntity.ok(savedExam);
                 })
@@ -49,9 +42,17 @@ public class ExamController {
         return examService.getExamById(id)
                 .map(exam -> {
                     examService.deleteExamById(id);
-                    return ResponseEntity.noContent().<Void>build(); // Cast explicitly
+                    return ResponseEntity.noContent().<Void>build();
                 })
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
-    
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Exam> getExamById(@PathVariable int id) {
+        Optional<Exam> exam = examService.getExamById(id);
+        return exam.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
 }
+

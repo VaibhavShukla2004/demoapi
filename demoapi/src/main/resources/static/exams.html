@@ -2,11 +2,66 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>GET All Exams</title>
+    <title>Exam Management</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>GET /exams</h1>
+
+<h1>Exam Management</h1>
+
+<h2>CREATE /exams — Create New Exam</h2>
+<form id="createExamForm">
+    <input type="number" name="examId" placeholder="Exam ID" required />
+    <input type="number" name="acadYear" placeholder="Academic Year" required />
+    <input type="text" name="examType" placeholder="Exam Type" required />
+    <input type="number" name="semester" placeholder="Semester" required />
+    <input type="text" name="courseCode" placeholder="Course Code" required />
+    <input type="date" name="dayOfExam" required />
+    <input type="number" name="noOfRooms" placeholder="Rooms" required />
+    <input type="number" name="noOfInvigilators" placeholder="Invigilators" required />
+    <input type="number" name="noOfStudents" placeholder="Students" required />
+    <input type="number" name="noOfRelievers" placeholder="Relievers" required />
+    <input type="number" name="noOfSquads" placeholder="Squads" required />
+    <input type="number" name="deptId" placeholder="Dept ID" required />
+    <input type="date" name="creationDate" required />
+    <input type="text" name="createdBy" placeholder="Created By" required />
+    <button type="submit">Create Exam</button>
+</form>
+
+<h2>UPDATE /exams - Update Exam</h2>
+<!-- Step 1: Search by ID -->
+<form id="fetchExamForm">
+    <input type="number" id="searchExamId" placeholder="Enter Exam ID to Edit" required />
+    <button type="submit">Fetch Exam</button>
+</form>
+
+<!-- Step 2: Auto-filled Update Form -->
+<form id="updateExamForm" style="margin-top: 10px;">
+    <input type="hidden" name="examId" />
+    <input type="number" name="acadYear" placeholder="Academic Year" required />
+    <input type="text" name="examType" placeholder="Exam Type" required />
+    <input type="number" name="semester" placeholder="Semester" required />
+    <input type="text" name="courseCode" placeholder="Course Code" required />
+    <input type="date" name="dayOfExam" required />
+    <input type="number" name="noOfRooms" placeholder="Rooms" required />
+    <input type="number" name="noOfInvigilators" placeholder="Invigilators" required />
+    <input type="number" name="noOfStudents" placeholder="Students" required />
+    <input type="number" name="noOfRelievers" placeholder="Relievers" required />
+    <input type="number" name="noOfSquads" placeholder="Squads" required />
+    <input type="number" name="deptId" placeholder="Dept ID" required />
+    <input type="date" name="creationDate" required />
+    <input type="text" name="createdBy" placeholder="Created By" required />
+    <button type="submit">Update Exam</button>
+</form>
+
+<h2>DELETE /exams - Delete Exam</h2>
+<form id="deleteExamForm">
+    <input type="number" id="deleteExamId" placeholder="Enter Exam ID to Delete" required />
+    <button type="submit">Delete Exam</button>
+</form>
+
+
+<h2>READ /exams — All Exams</h2>
 <button onclick="loadExams()">Fetch Exams</button>
 
 <table id="examTable">

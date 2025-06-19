@@ -8,14 +8,32 @@ h1 {
     font-size: 20px;
 }
 
+h2 {
+    margin-top: 24px;
+}
+
 button {
     margin: 10px 0;
     padding: 8px 16px;
 }
 
-pre {
-    background: #eee;
-    padding: 10px;
-    border-radius: 4px;
-    overflow-x: auto;
+form input {
+    margin: 4px;
+    padding: 6px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    background-color: #fff;
+}
+
+table, th, td {
+    border: 1px solid #000;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
 }
