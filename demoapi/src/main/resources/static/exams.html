@@ -7,8 +7,30 @@
 </head>
 <body>
 <h1>GET /exams</h1>
-<button onclick="handleGet()">Fetch Exams</button>
-<pre id="responseArea">Click the button to load exams...</pre>
+<button onclick="loadExams()">Fetch Exams</button>
+
+<table id="examTable">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Acad Year</th>
+        <th>Type</th>
+        <th>Semester</th>
+        <th>Course Code</th>
+        <th>Date</th>
+        <th>Rooms</th>
+        <th>Invigilators</th>
+        <th>Students</th>
+        <th>Relievers</th>
+        <th>Squads</th>
+        <th>Dept ID</th>
+        <th>Created On</th>
+        <th>Created By</th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
 <script src="exams.js"></script>
 </body>
 </html>
